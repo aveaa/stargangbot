@@ -61,4 +61,4 @@ async def ban(ctx, user: discord.Member):
     await bot.kick(user)
     print ("baned")
 
-bot.run(TOKEN)
+client.run(str(os.environ.get('BOT_TOKEN')))
