@@ -1,8 +1,8 @@
 {
   "name": "bot.py",
   "description": "discord selfbot",
-  "website": "http://stargang.ml"
-  "repository": "https://github.com/lucasdavid64536/stargangbot/bot.js"
+  "website": "http://stargang.ml",
+  "repository": "https://github.com/stargang/bot.js",
   "env": {
     "TOKEN": {
         "description": "Discord token used to log in",
