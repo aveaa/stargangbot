@@ -6,7 +6,7 @@ from discord.ext.commands import Bot
 import asyncio
 import chalk
 
-bot = commands.Bot(command_prefix='/')
+bot = commands.Bot(command_prefix='r.')
 
 print (discord.__version__)
 
@@ -16,16 +16,24 @@ async def on_ready():
     print ("I am running on " + bot.user.name)
     print ("With the ID: " + bot.user.id)
 
-@bot.command(pass_context=True)
-async def invite(ctx):
-    embed = discord.Embed(color=0x00ff00)
-    await bot.say("casa vin eu la tine - https://discordapp.com/api/oauth2/authorize?client_id=444201659053375488&permissions=8&scope=bot casa vi tu la mine - https://discord.gg/HeUeFpy")
-    print ("invie +1")
-
+@bot.command()
+async def roblox(ctx, *, message=None):
+    if message is None:
+        await ctx.send('Hey, please do `f.roblox <Roblox Name>`')
+    if message is not None:
+        await bot.get_channel(532994024701820948).send(f'@{ctx.author.name} Roblox Name: `{message}`')
+        await member.send('Join in gorup at channel #group to get robux!')
+        await ctx.message.delete()
+	
 @bot.command(pass_context=True)
 async def giveway(ctx):
     embed = discord.Embed(color=0x00ff00)
     await bot.say("@everyone un nou giveway s-a deschis apăsați sus pe :tada: ")
+
+@bot.command(pass_context=True)
+async def say(ctx, *, message):
+    embed = discord.Embed(color=0x00ff00)
+    await bot.say(f'  {message}  ')
 
 @bot.command(pass_context=True)
 async def info(ctx, user: discord.Member):
@@ -61,4 +69,4 @@ async def ban(ctx, user: discord.Member):
     await bot.kick(user)
     print ("baned")
 
-bot.run("NDQ0MjAxNjU5MDUzMzc1NDg4.Dds4rw.y0wb6f8UNodqQrowPmYdBZ9omT4")
+bot.run(os.getenv("TOKEN"))
